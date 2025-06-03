@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD Sadi Ashraf - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #0a0a1a 0%, #121233 30%, #1a1a3d 60%, #1e3a8a 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 1px,
+                rgba(30,58,138,0.05) 1px,
+                rgba(30,58,138,0.05) 20px
+            );
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(-100px) translateY(-100px); }
+            100% { transform: translateX(100px) translateY(100px); }
+        }
+
+        .profile-section {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #1e3a8a;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            box-shadow: 0 0 30px rgba(30,58,138,0.4);
+            background-image: url('https://i.imgur.com/RJmZlpy.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #bfdbfe;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #ffffff;
+            background: rgba(30, 58, 138, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(30, 58, 138, 0.4);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 20px;
+            min-width: 120px;
+            background: rgba(30, 58, 138, 0.15);
+            border: 2px solid transparent;
+            border-radius: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Individual social link colors */
+        .social-link:nth-child(1) {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.4), rgba(30, 58, 138, 0.2));
+            border-color: rgba(30, 58, 138, 0.6);
+        }
+
+        .social-link:nth-child(1):hover {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.7), rgba(30, 58, 138, 0.4));
+            border-color: rgba(30, 58, 138, 0.9);
+            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.4);
+        }
+
+        .social-link:nth-child(2) {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(59, 130, 246, 0.2));
+            border-color: rgba(59, 130, 246, 0.6);
+        }
+
+        .social-link:nth-child(2):hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.7), rgba(59, 130, 246, 0.4));
+            border-color: rgba(59, 130, 246, 0.9);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+        }
+
+        .social-link:nth-child(3) {
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.4), rgba(96, 165, 250, 0.2));
+            border-color: rgba(96, 165, 250, 0.6);
+        }
+
+        .social-link:nth-child(3):hover {
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.7), rgba(96, 165, 250, 0.4));
+            border-color: rgba(96, 165, 250, 0.9);
+            box-shadow: 0 15px 35px rgba(96, 165, 250, 0.4);
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30,58,138,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .social-link:hover::before {
+            left: 100%;
+        }
+
+        .social-link:hover {
+            transform: translateY(-8px) scale(1.05);
+        }
+
+        .social-icon {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .social-link span:last-child {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation */
+        nav {
+            background: #0a0a1a;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(30, 58, 138, 0.4);
+            border-bottom: 1px solid rgba(30, 58, 138, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30,58,138,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        .nav-link:hover {
+            background: rgba(30,58,138,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #2d2d2d;
+        }
+
+        section:nth-child(even) {
+            background: #0d0d0d;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            color: #1e3a8a;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+        }
+
+        /* Summary */
+        .summary-content {
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #e5e5e5;
+            line-height: 1.8;
+        }
+
+        /* Experience */
+        .experience-item {
+            background: #0a0a1a;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(30, 58, 138, 0.2);
+            border-left: 5px solid #1e3a8a;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #121233;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        .experience-date {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .experience-company {
+            color: #e5e5e5;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .experience-description {
+            color: #e5e5e5;
+        }
+
+        .experience-description ul {
+            margin-left: 20px;
+        }
+
+        .experience-description li {
+            margin-bottom: 8px;
+        }
+
+        /* Education */
+        .education-item {
+            background: #0a0a1a;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(30, 58, 138, 0.2);
+            border-left: 5px solid #1e3a8a;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #121233;
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .education-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        .education-date {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .education-institution {
+            color: #e5e5e5;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .education-grade {
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+
+        .education-thesis {
+            color: #e5e5e5;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: #0a0a1a;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(30, 58, 138, 0.1);
+            border: 1px solid #121233;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.2);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: #1e3a8a;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: #ffffff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Projects & Publications */
+        .projects-grid, .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-item, .publication-item {
+            background: #0a0a1a;
+            padding: 25px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(30, 58, 138, 0.1);
+            border: 1px solid #121233;
+        }
+
+        .project-item:hover, .publication-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.2);
+        }
+
+        .project-item h3, .publication-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: #1e3a8a;
+        }
+
+        .project-item p, .publication-item p {
+            color: #e5e5e5;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: #121233;
+            color: #1e3a8a;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid #1e3a8a;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a0a1a 0%, #121233 50%, #1e3a8a 100%);
+            padding: 40px 0;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #bfdbfe;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(30,58,138,0.3);
+            transition: all 0.4s ease;
+            background: rgba(30,58,138,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30,58,138,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .footer-link:hover::before {
+            left: 100%;
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+            border-color: rgba(30,58,138,0.6);
+            background: rgba(30,58,138,0.3);
+            transform: translateY(-2px);
+        }
+
+        .footer-info {
+            color: #bfdbfe;
+            margin-top: 20px;
+        }
+
+        .footer-info p {
+            margin: 5px 0;
+        }
+
+        /* Awards section styling */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .award-item {
+            background: #0a0a1a;
+            padding: 20px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(30, 58, 138, 0.1);
+            border: 1px solid #121233;
+            border-left: 5px solid #1e3a8a;
+        }
+
+        .award-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.2);
+        }
+
+        .award-item h4 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .award-item p {
+            color: #e5e5e5;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .social-links {
+                gap: 15px;
+                margin-top: 30px;
+            }
+
+            .social-link {
+                padding: 15px;
+                font-size: 0.8rem;
+                min-width: 100px;
+            }
+
+            .social-icon {
+                font-size: 1.5rem;
+            }
+
+            .nav-container {
+                gap: 20px;
+            }
+
+            .experience-header, .education-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-section">
+                <div class="profile-image"></div>
+                <h1>MD Sadi Ashraf</h1>
+                <p class="subtitle">Computer Science Graduate & AI/ML Researcher</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>sadisaysgo@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>+880 1984 531 109</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Dhaka, Bangladesh</span>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/md-sadi-ashraf" target="_blank" class="social-link" title="LinkedIn Profile">
+                        <span class="social-icon">💼</span>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="mailto:sadisaysgo@gmail.com" class="social-link" title="Email Contact">
+                        <span class="social-icon">📧</span>
+                        <span>Email</span>
+                    </a>
+                    <a href="tel:+8801984531109" class="social-link" title="Phone Contact">
+                        <span class="social-icon">📞</span>
+                        <span>Phone</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#publications" class="nav-link">Publications</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
+                <a href="#awards" class="nav-link">Awards</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title fade-in">Education</h2>
+            
+            <div class="education-item fade-in">
+                <div class="education-header">
+                    <div>
+                        <div class="education-title">BSc in Computer Science</div>
+                        <div class="education-institution">BRAC University</div>
+                        <div class="education-grade">CGPA: 3.30/4.00</div>
+                        <div class="education-thesis">Received BRAC University Scholarship and Dean's List (2 times)</div>
+                    </div>
+                    <div class="education-date">Jan 2021 – Oct 2024</div>
+                </div>
+            </div>
+
+            <div class="education-item fade-in">
+                <div class="education-header">
+                    <div>
+                        <div class="education-title">Higher Secondary Certificate (HSC)</div>
+                        <div class="education-institution">Dhaka City College</div>
+                        <div class="education-grade">GPA: 5.00/5.00</div>
+                        <div class="education-thesis">Recipient of Bangladesh Ministry of Education Scholarship</div>
+                    </div>
+                    <div class="education-date">Aug 2018 - Dec 2020</div>
+                </div>
+            </div>
+
+            <div class="education-item fade-in">
+                <div class="education-header">
+                    <div>
+                        <div class="education-title">Secondary School Certificate (SSC)</div>
+                        <div class="education-institution">Khilgaon Government High School</div>
+                        <div class="education-grade">GPA: 5.00/5.00</div>
+                    </div>
+                    <div class="education-date">Jan 2007 - Jul 2018</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title fade-in">Experience</h2>
+            
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Research Assistant</div>
+                        <div class="experience-company">Freelance (Remote, United States)</div>
+                    </div>
+                    <div class="experience-date">Jan 2024 – Sep 2024</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Supported research projects by conducting literature reviews, data collection and analysis</li>
+                        <li>Utilized research tools such as SPSS and Qualtrics for data analysis</li>
+                        <li>Demonstrated strong remote collaboration skills with principal investigators and team members</li>
+                        <li>Proactively improved processes and increased efficiency</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Senior Project Development Manager</div>
+                        <div class="experience-company">Kashful Foundation, Dhaka, Bangladesh</div>
+                    </div>
+                    <div class="experience-date">Dec 2023 - Jan 2025</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Secured substantial funding and led high-impact projects with measurable results</li>
+                        <li>Excelled in strategic thinking, adaptability, and focus on meaningful outcomes</li>
+                        <li>Demonstrated leadership in creating sustainable development programs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Project Development Manager</div>
+                        <div class="experience-company">Kashful Foundation, Dhaka, Bangladesh</div>
+                    </div>
+                    <div class="experience-date">Jul 2022 - Nov 2023</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Achieved significant milestones by securing funding and implementing equality projects</li>
+                        <li>Demonstrated commitment to creating a more just and equitable society</li>
+                        <li>Led cross-functional teams to deliver impactful community programs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Project Executive</div>
+                        <div class="experience-company">Kashful Foundation, Dhaka, Bangladesh</div>
+                    </div>
+                    <div class="experience-date">Jan 2021 - Jun 2022</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Delivered projects that exceeded expectations in dynamic environments</li>
+                        <li>Turned ideas into tangible results, demonstrating dedication to project success</li>
+                        <li>Gained foundational experience in project management and stakeholder engagement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title fade-in">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-item fade-in">
+                    <h3>Bangladesh Weather Prediction using LLM</h3>
+                    <p>Developing a forecasting model leveraging Large Language Models to improve weather prediction in Bangladesh.</p>
+                    <p><strong>Duration:</strong> Jan 2024 - Present</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">LLMs</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Weather Forecasting</span>
+                    </div>
+                </div>
+
+                <div class="project-item fade-in">
+                    <h3>Supply Chain Management using LLM</h3>
+                    <p>Integrating LLMs to optimize and streamline supply chain operations through AI-driven decision-making.</p>
+                    <p><strong>Duration:</strong> Jan 2024 - Present</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">LLMs</span>
+                        <span class="tech-tag">Data Analytics</span>
+                        <span class="tech-tag">Supply Chain</span>
+                    </div>
+                </div>
+
+                <div class="project-item fade-in">
+                    <h3>Using LLM to Train Deep Learning Model for Reinforcement Learning</h3>
+                    <p>Exploring how LLMs can enhance reinforcement learning by improving data generation and model training.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">LLMs</span>
+                        <span class="tech-tag">Reinforcement Learning</span>
+                        <span class="tech-tag">Deep Learning</span>
+                    </div>
+                </div>
+
+                <div class="project-item fade-in">
+                    <h3>Integrating Deep Learning for Crack Detection</h3>
+                    <p>Simulated structural degradation dynamics using deep learning for crack detection with stochastic modeling.</p>
+                    <p><strong>Completed:</strong> March 2023</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">Keras</span>
+                        <span class="tech-tag">MATLAB</span>
+                        <span class="tech-tag">Computer Vision</span>
+                    </div>
+                </div>
+
+                <div class="project-item fade-in">
+                    <h3>Echoes of Change: Unveiling Indian Political Discourse</h3>
+                    <p>Analyzed 7,000 tweets to uncover patterns in political narratives using sentiment analysis and categorization.</p>
+                    <p><strong>Completed:</strong> May 2022</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Sentiment Analysis</span>
+                        <span class="tech-tag">Data Mining</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <div class="container">
+            <h2 class="section-title fade-in">Publications</h2>
+            <div class="publications-grid">
+                <div class="publication-item fade-in">
+                    <h3>A Multi-Agent Garage Service Search and Recommendation with Hybrid MLs and LLMs</h3>
+                    <p><strong>Status:</strong> Accepted at IEEE ICCECE 2025</p>
+                    <p><strong>Conference ID:</strong> #61355</p>
+                    <p><strong>Year:</strong> 2025</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Multi-Agent Systems</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">LLMs</span>
+                        <span class="tech-tag">Recommendation Systems</span>
+                    </div>
+                </div>
+
+                <div class="publication-item fade-in">
+                    <h3>Deep Learning Analysis of COVID-19 Lung Infections in CT Scans</h3>
+                    <p><strong>Published in:</strong> 2024 First International Conference on Advances in Modern Age Technologies for Health and Engineering Science (AMATHE 2024)</p>
+                    <p><strong>Date:</strong> May 2024</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Deep Learning</span>
+                        <span class="tech-tag">Medical Imaging</span>
+                        <span class="tech-tag">COVID-19</span>
+                        <span class="tech-tag">CT Scans</span>
+                    </div>
+                </div>
+
+                <div class="publication-item fade-in">
+                    <h3>Comparative Analysis of Diverse Architectures for Accurate Blood Cancer Cell Classification</h3>
+                    <p><strong>Published in:</strong> 2024 International Conference on Computer, Electrical & Communication Engineering (ICCECE)</p>
+                    <p><strong>Date:</strong> February 2024</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Deep Learning</span>
+                        <span class="tech-tag">Medical AI</span>
+                        <span class="tech-tag">Cancer Detection</span>
+                        <span class="tech-tag">Cell Classification</span>
+                    </div>
+                </div>
+
+                <div class="publication-item fade-in">
+                    <h3>Evaluating Machine Learning Model Performance in Predicting Polycystic Ovarian Syndrome</h3>
+                    <p><strong>Published in:</strong> 2023 IEEE 9th International Women in Engineering (WIE) Conference (WIECON-ECE)</p>
+                    <p><strong>Date:</strong> November 2023</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Healthcare AI</span>
+                        <span class="tech-tag">PCOS</span>
+                        <span class="tech-tag">Predictive Modeling</span>
+                    </div>
+                </div>
+
+                <div class="publication-item fade-in">
+                    <h3>Increasing Image Classification Speed in Python Environments Using CNNs</h3>
+                    <p><strong>DOI:</strong> 10.21203/rs.3.rs-2763126/v1</p>
+                    <p><strong>Date:</strong> April 2023</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">CNNs</span>
+                        <span class="tech-tag">Image Classification</span>
+                        <span class="tech-tag">Performance Optimization</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title fade-in">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Shell Scripting</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Oracle</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>AI/ML Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">NLTK</span>
+                        <span class="skill-tag">SpaCy</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Keras</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Hugging Face</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Web Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">NodeJS</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">Streamlit</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">SQLite</span>
+                        <span class="skill-tag">Advanced Excel</span>
+                        <span class="skill-tag">Power BI (DAX)</span>
+                        <span class="skill-tag">Tableau</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Business Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">QuickBooks</span>
+                        <span class="skill-tag">Macros</span>
+                        <span class="skill-tag">Xero</span>
+                        <span class="skill-tag">Dynamics CRM</span>
+                        <span class="skill-tag">Salesforce CRM</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Development Environment</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">Google Colab</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">API Integration</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Windows</span>
+                        <span class="skill-tag">Arduino</span>
+                        <span class="skill-tag">Raspberry Pi</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Alibaba Cloud</span>
+                        <span class="skill-tag">IBM Cloud</span>
+                        <span class="skill-tag">Twitter API</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Research</span>
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">Event Management</span>
+                        <span class="skill-tag">Writing</span>
+                        <span class="skill-tag">Time Management</span>
+                        <span class="skill-tag">Data Analytics</span>
+                        <span class="skill-tag">Analytical Thinking</span>
+                        <span class="skill-tag">Problem-Solving</span>
+                        <span class="skill-tag">Critical Thinking</span>
+                        <span class="skill-tag">Team Collaboration</span>
+                        <span class="skill-tag">Cross-Functional Communication</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title fade-in">Certifications</h2>
+            <div class="awards-grid">
+                <div class="award-item fade-in">
+                    <h4>ITEE Training</h4>
+                    <p>BRAC University - 2023</p>
+                </div>
+                <div class="award-item fade-in">
+                    <h4>B-Meet Certificate</h4>
+                    <p>North South University - 2023</p>
+                </div>
+                <div class="award-item fade-in">
+                    <h4>Online Leadership Course</h4>
+                    <p>Aspire Leadership - 2023</p>
+                </div>
+                <div class="award-item fade-in">
+                    <h4>Machine Learning Training</h4>
+                    <p>Pantech Solutions - 2023</p>
+                </div>
+                <div class="award-item fade-in">
+                    <h4>Critical Thinking Skills for the Professional</h4>
+                    <p>Coursera - 2023</p>
+                </div>
+                <div class="award-item fade-in">
+                    <h4>Genome Assembly Programming Challenge</h4>
+                    <p>Coursera - 2023</p>
+                </div>
+                <div class="award-item fade-in">
+                    <h4>Data Structures Certificate</h4>
+                    <p>Coursera - 2023</p>
+                </div>
+                <div class="award-item fade-in">
+                    <h4>Algorithmic Toolbox Certificate</h4>
+                    <p>Coursera - 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="awards">
+        <div class="container">
+            <h2 class="section-title fade-in">Honors and Awards</h2>
+            <div class="awards-grid">
+                <div class="award-item fade-in">
+                    <h4>BRAC University Scholarship</h4>
+                    <p>Recipient of merit-based scholarship for academic excellence</p>
+                </div>
+                <div class="award-item fade-in">
+                    <h4>Dean's List</h4>
+                    <p>Achieved Dean's List recognition 2 times for outstanding academic performance</p>
+                </div>
+                <div class="award-item fade-in">
+                    <h4>Bangladesh Ministry of Education Scholarship</h4>
+                    <p>National scholarship recipient for exceptional HSC performance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-social">
+                    <a href="https://linkedin.com/in/md-sadi-ashraf" target="_blank" class="footer-link">LinkedIn</a>
+                    <a href="mailto:sadisaysgo@gmail.com" class="footer-link">Email</a>
+                    <a href="tel:+8801984531109" class="footer-link">Phone</a>
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2025 MD Sadi Ashraf. All rights reserved.</p>
+                    <p>Computer Science Graduate & AI/ML Researcher</p>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Last updated in April 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.experience-item, .education-item, .project-item, .publication-item, .skill-category, .award-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 12px 35px rgba(30, 58, 138, 0.25)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '';
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.background = '';
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.style.background = 'rgba(30,58,138,0.3)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
